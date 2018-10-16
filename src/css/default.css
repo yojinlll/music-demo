@@ -31,6 +31,9 @@ body{ font-size: 12px; line-height: 1.5; }
 .newSong.active{
     background: #d4d4d4;
 }
+#songList-container{
+    flex-grow: 1;
+}
 .songList{
     flex-grow: 1;
     text-align: left;

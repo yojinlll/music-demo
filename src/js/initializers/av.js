@@ -7,3 +7,5 @@
       appKey: APP_KEY
   });
 }
+
+// leancloud 数据库初始化

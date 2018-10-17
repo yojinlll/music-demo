@@ -14,16 +14,16 @@
       this.view.render(this.model.data)
       this.active()
       this.bindEventHub()
-      $(this.view.el).on('click',()=>{
-        window.eventHub.emit('new')
-      })
     },
     bindEventHub(){
       window.eventHub.on('new', (data) => {
         this.active()
       })
-      window.eventHub.on('select',(songId)=>{
+      window.eventHub.on('select',(data)=>{
         this.deactive()
+      })
+      $(this.view.el).on('click',()=>{
+        window.eventHub.emit('new')
       })
     },
     active() {

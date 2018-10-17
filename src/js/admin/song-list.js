@@ -53,13 +53,13 @@
         let songId = $(e.currentTarget).attr('data-song-id')
         let data
         let songs = this.model.data.songs
-        for(let i in songs){
+        for(let i=0; i<songs.length; i++){
           if(songId === songs[i].id){
             data = songs[i]
             break
           }
         }
-        window.eventHub.emit('select',JSON.parse(JSON.stringify(data)))
+        window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
       })
     },
     // 获取歌曲列表
@@ -70,22 +70,13 @@
       })
     },
     bindEventHub(){
+
       window.eventHub.on('create', (songData) => {
         this.model.data.songs.push(songData)
         this.view.render(this.model.data)
-
       })
       window.eventHub.on('new',()=>{
         this.view.clearActive()
-      })
-      window.eventHub.on('update', (song)=>{
-        let songs = this.model.data.songs
-        for(let i=0; i<songs.length; i++){
-          if(songs[i].id === song.id){
-            Object.assign(songs[i],song)
-          }
-        }
-        this.view.render(this.model.data)
       })
     }
   }

@@ -51,8 +51,15 @@
       $(this.view.el).on('click','li',(e)=>{
         this.view.activeItem(e.currentTarget)
         let songId = $(e.currentTarget).attr('data-song-id')
-        // let songId = e.currentTarget.getAttribute('data-song-id')
-        window.eventHub.emit('select',{id:songId})
+        let data
+        let songs = this.model.data.songs
+        for(let i in songs){
+          if(songId === songs[i].id){
+            data = songs[i]
+            break
+          }
+        }
+        window.eventHub.emit('select',JSON.parse(JSON.stringify(data)))
       })
     },
     // 获取歌曲列表

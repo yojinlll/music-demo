@@ -66,10 +66,15 @@
       this.view.init()
       this.model = model
       this.view.render(this.model.data)
+      this.bindEvents()
       window.eventHub.on('upload', (data) => {
         this.view.render(data)
       })
-      this.bindEvents()
+      window.eventHub.on('select',(data)=>{
+        // console.log(data)
+        this.model.data = data
+        this.view.render(data)
+      })
     },
     bindEvents() {
       this.view.$el.on('submit', 'form', (e) => {

@@ -14,10 +14,12 @@
       this.view.render(this.model.data)
       this.active()
       this.bindEventHub()
-      $(this.view.el).on('click',()=>this.active())
+      $(this.view.el).on('click',()=>{
+        window.eventHub.emit('new')
+      })
     },
     bindEventHub(){
-      window.eventHub.on('upload', (data) => {
+      window.eventHub.on('new', (data) => {
         this.active()
       })
       window.eventHub.on('select',(songId)=>{
@@ -26,7 +28,6 @@
     },
     active() {
       $(this.view.el).addClass('active')
-      window.eventHub.emit('new')
     },
     deactive(){
       $(this.view.el).removeClass('active')

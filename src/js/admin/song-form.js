@@ -50,6 +50,16 @@
     data: {
       name: '', singer: '', url: '', id: ''
     },
+    update(data){         // 更新 leancloud 数据库里的数据
+      var song = AV.Object.createWithoutData('Song', this.data.id)
+      song.set('name', data.name)
+      song.set('singer', data.singer)
+      song.set('url', data.url)
+      return song.save().then((response)=>{
+        Object.assign(this.data, data)
+        return response
+      })
+    },
     create(data) {       // 点击保存，将数据存入leancloud
       var Song = AV.Object.extend('Song');
       var song = new Song();
@@ -72,11 +82,11 @@
       this.view.render(this.model.data)
       this.bindEvents()
 
-      window.eventHub.on('select',(data)=>{           // list点击歌曲传来的 data, 将其渲染文本框中
+      window.eventHub.on('select',(data)=>{           // list点击歌曲传来的 data, 保存该数据，并将其渲染文本框中，
         this.model.data = data
         this.view.render(data)
       })
-      window.eventHub.on('new',(data)=>{              // 关联 new-song 与 song-list ，当 form 文本框有内容时，点击新建歌曲，判断文本框内容之前有无存储过
+      window.eventHub.on('new',(data)=>{     // 关联 new-song 与 song-list ，当 form 文本框有内容时，点击新建歌曲，判断文本框内容之前有无存储过（86，储存）
         if(this.model.data.id){
           this.model.data = {
             name:'',url:'',id:'',singer:''
@@ -87,21 +97,41 @@
         this.view.render(this.model.data)
       })
     },
-    bindEvents() {
-      this.view.$el.on('submit', 'form', (e) => {
-        e.preventDefault()
-        let needs = 'name singer url'.split(' ')
-        let data = {}
-        needs.map((string) => {
-          data[string] = this.view.$el.find(`[name=${string}]`).val()
-        })
-        this.model.create(data)
-          .then(()=>{
+    create(){     // 根据 form 文本框内容创建数据
+      let needs = 'name singer url'.split(' ')
+      let data = {}
+      needs.map((string) => {
+        data[string] = this.view.$el.find(`[name=${string}]`).val()
+      })
+      this.model.create(data)
+        .then(()=>{
             this.view.reset()     // 重置文本框
             let object = JSON.parse(JSON.stringify(data))
             window.eventHub.emit('create',object)
           }
         )
+    },
+    update(){     // 根据 form 文本框内容更新数据
+      let needs = 'name singer url'.split(' ')
+      let data = {}
+      needs.map((string)=>{
+        data[string] = this.view.$el.find(`[name="${string}"]`).val()
+      })
+      this.model.update(data)
+        .then(()=>{
+          window.eventHub.emit('update', JSON.parse(JSON.stringify(this.model.data)))
+        })
+    },
+    bindEvents() {
+      this.view.$el.on('submit', 'form', (e) => {
+        e.preventDefault()
+        if(this.model.data.id){
+          console.log(111111111111)
+          this.update()
+        }else{
+          console.log(222222)
+          this.create()
+        }
       })
     }
   }

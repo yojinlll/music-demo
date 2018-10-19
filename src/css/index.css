@@ -1,0 +1,86 @@
+*{margin:0; padding:0;}
+*, *::after,*::before{box-sizing: border-box;}
+
+html,body{ min-height: 100%; }
+body { background: linear-gradient(to bottom, #238999, #313C60) }
+
+.icon {
+    width: 3em; height: 3em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/*歌词容器*/
+.lyric-container{
+    display: flex;
+    width:80%;
+    height:600px;
+    padding:15px;
+    position:relative;
+    margin:40px auto 0;
+    background:rgba(79,185,159,1);
+    box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
+    
+}
+
+.lyric-container > .lyric {
+    width:30%;
+    height:95%;
+    padding:15px;
+    position:absolute;
+    left:68%;
+    border: 1px solid red;
+}
+
+
+/*歌单容器*/
+.songList-container{
+    display: flex;
+    width:65%;
+    height:98%;
+    padding:15px;
+    position:relative;
+    background:rgba(242,177,52,1);
+    box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
+}
+
+.songList-container > .songList {
+    width:45%;
+    height:93%;
+    padding:15px;
+    position:absolute;
+    border: 1px solid red;
+}
+
+/*播放器*/
+.music-player{
+    width:48%;
+    height:93%;
+    padding:15px;
+    position:absolute;
+    left:50%;
+    background:rgba(237,85,59,1);
+    box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
+}
+.music-player > .album-art{
+    width: 100%;
+    height: 330px;
+    border: 1px solid #000;
+}
+
+.music-player > .controls > .bar-container{
+    height: 1px;
+    margin: 30px 0;
+    position: relative;
+    background: #262626;
+}
+.music-player > .controls > .bar-container > bar{
+    width: 0;
+    display: block;
+    height: inherit;
+    background: #bc3958;
+    box-shadow: 0 0 5px 0 #bc3958;
+}
+
+

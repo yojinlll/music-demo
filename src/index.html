@@ -11,42 +11,41 @@
 <body>
 <div class="lyric-container">
 
-    <div class="lyric"></div>
 
     <div class="songList-container">
-        <div class="songList"></div>
+        <div class="songList-wrapper"></div>
+
         <div class="music-player">
-            <div class="album-art"></div>
+
+            <div class="art"></div>
+
             <div class="controls">
-                <div class="song-list"></div>
                 <div class="bar-container">
                     <div class="bar"></div>
                 </div>
-                <div class="action-button">
-                    <div class="icon-next">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-prev"></use>
-                        </svg>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-play"></use>
-                        </svg>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-stop"></use>
-                        </svg>
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-next"></use>
-                        </svg>
-
-                    </div>
-                </div>
+                <div class="action-button"></div>
             </div>
+
         </div>
     </div>
+
+    <div class="lyric-wrapper"></div>
+
 
 </div>
 
 
 
-<script src="//at.alicdn.com/t/font_880926_rn72llqtgn.js"></script>
+<script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
+<script src="./js/initializers/av.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./js/admin/event-hub.js"></script>
+
+<script src="js/index/svg.js"></script>
+<script src="./js/index/song-list.js"></script>
+<script src="js/index/lyric.js"></script>
+<script src="js/index/action-button.js"></script>
+<script src="js/index/art.js"></script>
+
 </body>
 </html>

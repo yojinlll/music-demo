@@ -1,5 +1,6 @@
-*{margin:0; padding:0;}
-*, *::after,*::before{box-sizing: border-box;}
+*{ margin:0; padding:0; }
+*, *::after,*::before{ box-sizing: border-box; }
+ul,ol{ list-style: none; }
 
 html,body{ min-height: 100%; }
 body { background: linear-gradient(to bottom, #238999, #313C60) }
@@ -14,17 +15,18 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
 /*歌词容器*/
 .lyric-container{
     display: flex;
-    width:80%;
-    height:600px;
+    width:1000px;
+    height:580px;
     padding:15px;
     position:relative;
     margin:40px auto 0;
-    background:rgba(79,185,159,1);
+    background: rgb(107, 185, 138);
+    /*background: linear-gradient(to bottom, #3bb266, rgba(82, 125, 136, 0.88));*/
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
     
 }
 
-.lyric-container > .lyric {
+.lyric-container > .lyric-wrapper {
     width:30%;
     height:95%;
     padding:15px;
@@ -42,19 +44,31 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     padding:15px;
     position:relative;
     background:rgba(242,177,52,1);
+    /*background: linear-gradient(to bottom, rgba(242, 177, 52, 0.89), rgba(173, 141, 66, 0.78));*/
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
 }
+.songList-container.active{
+    background: red;
+}
 
-.songList-container > .songList {
+.songList-container > .songList-wrapper {
     width:45%;
     height:93%;
     padding:15px;
     position:absolute;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
+
+.songList-wrapper > .songList > li {
+    padding: 10px 0;
+    border-bottom: solid rgba(0, 0, 0, 0.1);
+}
+
 
 /*播放器*/
 .music-player{
+    /*display: none;*/
+    
     width:48%;
     height:93%;
     padding:15px;
@@ -63,15 +77,19 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     background:rgba(237,85,59,1);
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
 }
-.music-player > .album-art{
+.music-player .album-art{
     width: 100%;
-    height: 330px;
+    height: 300px;
     border: 1px solid #000;
 }
-
+.music-player .song-name {
+    height: 3em;
+    line-height: 30px;
+    padding: 10px;
+}
 .music-player > .controls > .bar-container{
     height: 1px;
-    margin: 30px 0;
+    margin-bottom: 20px;
     position: relative;
     background: #262626;
 }
@@ -81,6 +99,10 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     height: inherit;
     background: #bc3958;
     box-shadow: 0 0 5px 0 #bc3958;
+}
+.music-player > .controls > .action-button > .button-icon-2{
+    display: flex;
+    justify-content: flex-end;
 }
 
 

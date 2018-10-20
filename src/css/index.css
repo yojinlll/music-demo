@@ -13,24 +13,33 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     cursor: pointer;
 }
 
+.container{
+    display: flex;
+    justify-content: flex-end;
+    width:1000px;
+    height:580px;
+    position:relative;
+    margin:40px auto 0;
+}
+
 /*歌词容器*/
 .lyric-container{
     display: flex;
-    width:1000px;
-    height:580px;
-    padding:15px;
+    width:70%;
+    height:100%;
+    padding:8px;
     position:relative;
-    margin:40px auto 0;
+    /*margin:40px auto 0;*/
     background: rgb(107, 185, 138);
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
 }
 
 .lyric-container > .lyric-wrapper {
-    width:30%;
+    width:45%;
     height:95%;
-    padding:15px;
+    padding:25px;
     position:absolute;
-    left:68%;
+    left:54%;
     /*border: 1px solid red;*/
     /*overflow: hidden;*/
     overflow:auto;
@@ -40,10 +49,11 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
 /*歌单容器*/
 .songList-container{
     display: flex;
-    width:65%;
-    height:98%;
-    padding:15px;
+    width:700px;
+    height:99%;
+    padding:8px;
     position:relative;
+    left:-48%;
     background:rgba(242,177,52,1);
     /*background: linear-gradient(to bottom, rgba(242, 177, 52, 0.89), rgba(173, 141, 66, 0.78));*/
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
@@ -61,8 +71,10 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
 }
 
 .songList-wrapper > .songList > li {
+    display: block;
     padding: 10px 0;
     border-bottom: solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 
@@ -71,7 +83,7 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     /*display: none;*/
     
     width:48%;
-    height:93%;
+    height:96%;
     padding:15px;
     position:absolute;
     left:50%;

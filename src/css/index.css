@@ -10,6 +10,7 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
+    cursor: pointer;
 }
 
 /*歌词容器*/
@@ -21,9 +22,7 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     position:relative;
     margin:40px auto 0;
     background: rgb(107, 185, 138);
-    /*background: linear-gradient(to bottom, #3bb266, rgba(82, 125, 136, 0.88));*/
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
-    
 }
 
 .lyric-container > .lyric-wrapper {
@@ -32,7 +31,9 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     padding:15px;
     position:absolute;
     left:68%;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
+    /*overflow: hidden;*/
+    overflow:auto;
 }
 
 
@@ -79,8 +80,9 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
 }
 .music-player .album-art{
     width: 100%;
-    height: 300px;
+    height: 270px;
     border: 1px solid #000;
+    background-size: cover;
 }
 .music-player .song-name {
     height: 3em;
@@ -101,6 +103,7 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     box-shadow: 0 0 5px 0 #bc3958;
 }
 .music-player > .controls > .action-button > .button-icon-2{
+    margin-top: 30px;
     display: flex;
     justify-content: flex-end;
 }

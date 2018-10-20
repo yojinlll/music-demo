@@ -53,7 +53,7 @@
             this.model.data.clickSong = song
           }
         })
-        window.eventHub.emit("showArt", this.model.data.clickSong)
+        window.eventHub.emit("selectArt", this.model.data.clickSong)
       })
 
     },

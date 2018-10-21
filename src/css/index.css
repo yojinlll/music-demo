@@ -12,6 +12,10 @@ body { background: linear-gradient(to bottom, #238999, #313C60); overflow-x:hidd
     overflow: hidden;
     cursor: pointer;
 }
+#icon-music {
+    width: 6em; height: 6em;
+    cursor: auto;
+}
 
 .container{
     width:1000px;
@@ -37,6 +41,7 @@ body { background: linear-gradient(to bottom, #238999, #313C60); overflow-x:hidd
     width:45%;
     height:95%;
     padding:25px;
+    border: 30px solid transparent;
     position:absolute;
     left:54%;
     /*border: 1px solid red;*/
@@ -58,9 +63,9 @@ body { background: linear-gradient(to bottom, #238999, #313C60); overflow-x:hidd
 }
 
 .songList-container > .songList-wrapper {
-    width:45%;
+    width:50%;
     height:93%;
-    padding:15px;
+    padding:35px;
     position:absolute;
     /*border: 1px solid red;*/
 }
@@ -86,9 +91,13 @@ body { background: linear-gradient(to bottom, #238999, #313C60); overflow-x:hidd
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
 }
 .music-player .album-art{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 270px;
     border: 1px solid #000;
+    background: linear-gradient(to bottom, #238999, #36667a); overflow-x:hidden;
     background-size: cover;
 }
 .music-player .song-name {

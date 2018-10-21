@@ -28,8 +28,8 @@
     init(view, model){
       this.view = view
       this.model = model
-      window.eventHub.on('selectArt',(clickSong)=>{
-        this.view.render(clickSong)
+      window.eventHub.on('showArt',(data)=>{
+        this.view.render(data.clickSong)
       })
     },
   }

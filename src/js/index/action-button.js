@@ -9,12 +9,9 @@
         <svg id="play-pause-button" class="icon" aria-hidden="true">
             <use xlink:href="#icon-play"></use>
         </svg>
-        <!--<svg id="pause-button" class="icon" aria-hidden="true">-->
-            <!--<use xlink:href="#icon-pause"></use>-->
+        <!--<svg id="stop-button" class="icon" aria-hidden="true">-->
+            <!--<use xlink:href="#icon-stop"></use>-->
         <!--</svg>-->
-        <svg id="stop-button" class="icon" aria-hidden="true">
-            <use xlink:href="#icon-stop"></use>
-        </svg>
         <svg id="next-button" class="icon" aria-hidden="true">
             <use xlink:href="#icon-next"></use>
         </svg>
@@ -39,22 +36,28 @@
       this.model = model
       this.view.render()
       this.bindEvents()
+      $('#list-button').trigger('click')
+      $('#lyric-button').trigger('click')
+
     },
     bindEvents(){
-      $(this.view.el).on('click','#play-pause-button',()=>{
-        window.eventHub.emit('emitPlayPause')
-      })
-      $(this.view.el).on('click','#list-button',()=>{
-        window.eventHub.emit('emitListToggle')
-      })
-      $(this.view.el).on('click','#lyric-button',()=>{
-        window.eventHub.emit('emitLyricToggle')
-      })
       $(this.view.el).on('click','#prev-button',()=>{
         window.eventHub.emit('emitPrevSong')
       })
+      $(this.view.el).on('click','#play-pause-button',()=>{
+        window.eventHub.emit('emitPlayPause')
+      })
       $(this.view.el).on('click','#next-button',()=>{
         window.eventHub.emit('emitNextSong')
+      })
+
+      // 歌单歌词开关
+      $(this.view.el).on('click','#list-button',()=>{
+        $('.container').toggleClass('listActive')
+      })
+      $(this.view.el).on('click','#lyric-button',()=>{
+        $('.container').toggleClass('lyricActive')
+
       })
     }
   }

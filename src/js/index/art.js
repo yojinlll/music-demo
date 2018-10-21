@@ -2,7 +2,11 @@
   let view = {
     el: ".art",
     template: `
-        <div class="album-art"></div>
+        <div class="album-art">
+            <svg id="icon-music" class="icon" aria-hidden="true">
+                <use xlink:href="#icon-music"></use>
+            </svg>
+        </div>
         <div class="song-name"></div>
         <audio></audio>
     `,
@@ -10,49 +14,85 @@
       $(this.el).html(this.template)
 
     },
-    replaceCover(cover){
-      $(this.el).find($('.album-art')).attr('style',`background-image:url(${cover})`)
+    replaceArt(clickSong){                // 替换作品（ 歌名 url 封面 ）
+      this.render()
+      $('.song-name')[0].innerHTML = clickSong.name
+      $('.art > audio').attr('src', clickSong.url)
+      $(this.el).find($('.album-art')).attr('style', `background-image:url(${clickSong.cover})`)
+      if(clickSong.cover){
+        $('.album-art').empty()
+      }else{
+        $(this.el).find($('.album-art')).removeAttr('style')
+      }
     },
-    play(){
-      $(this.el).find('audio')[0].play()
+    playToggle(){                         // 播放 & 暂停
+      let icon = $('#play-pause-button > use').attr('xlink:href')
+      let name = $('.art > .song-name').text()
+      if (icon === '#icon-play' && name) {
+        $(this.el).find('audio')[0].play()
+        $('#play-pause-button > use').attr('xlink:href', '#icon-pause')
+      }else {
+        $('#play-pause-button > use').attr('xlink:href', '#icon-play')
+        $(this.el).find('audio')[0].pause()
+      }
     },
-    pause(){
-      $(this.el).find('audio')[0].pause()
-    }
-
   }
-  let model = {}
+  let model = {
+    data: []
+  }
   let controller = {
-    init(view,model){
+    init(view, model){
       this.view = view
       this.model = model
-      this.bindEventHub()
       this.view.render()
+      this.bindEventHub()
     },
     bindEventHub(){
-      window.eventHub.on('selectArt',(clickSong)=>{             // 选择歌曲作品
-        $('.song-name')[0].innerHTML = clickSong.name           // 歌名
-        $('.art > audio').attr('src',clickSong.url)             // 歌曲url
-        this.view.replaceCover(clickSong.cover)
+      window.eventHub.on('showArt', (data) => {             // 选择歌曲作品
+        this.model.data = data
+        $('#play-pause-button > use').attr('xlink:href', '#icon-play')
+        this.view.replaceArt(data.clickSong)
       })
-      window.eventHub.on('emitPlayPause',()=>{                       // 播放和暂停歌曲
-        let icon = $('#play-pause-button > use').attr('xlink:href')
-        let name = $('.art > .song-name').text()
-        if(icon==='#icon-play' && name){
-          this.view.play()
-          $('#play-pause-button > use').attr('xlink:href','#icon-pause')
-          this.onEnded()
-        }else{
-          $('#play-pause-button > use').attr('xlink:href','#icon-play')
-          this.view.pause()
+      window.eventHub.on('emitPlayPause', () => {                       // 播放和暂停歌曲
+        this.view.playToggle()
+        this.onEnded()
+      })
+      window.eventHub.on('emitPrevSong', () => {
+        $('#play-pause-button > use').attr('xlink:href', '#icon-play')
+        let name = $('.song-name')[0].innerHTML
+        let {songs} = this.model.data
+
+        for (let i = 0; i < songs.length; i++) {
+          if(songs[i].name === name){
+            if(i-1 === -1){
+              this.view.replaceArt(songs[songs.length-1])
+            }else{
+              this.view.replaceArt(songs[i - 1])
+            }
+          }
+        }
+      })
+      window.eventHub.on('emitNextSong', () => {
+        $('#play-pause-button > use').attr('xlink:href', '#icon-play')
+        let name = $('.song-name')[0].innerHTML
+        let {songs} = this.model.data
+
+        for (let i = 0; i < songs.length; i++) {
+          if(songs[i].name === name){
+            if(i+1 === songs.length){
+              this.view.replaceArt(songs[0])
+            }else{
+              this.view.replaceArt(songs[i + 1])
+            }
+          }
         }
       })
     },
     onEnded(){
-      $('.art > audio')[0].onended = (()=>{
-        $('#play-pause-button > use').attr('xlink:href','#icon-play')
+      $('.art > audio')[0].onended = (() => {
+        $('#play-pause-button > use').attr('xlink:href', '#icon-play')
       })
     }
   }
-  controller.init(view,model)
+  controller.init(view, model)
 }

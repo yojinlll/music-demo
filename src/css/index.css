@@ -14,11 +14,10 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
 }
 
 .container{
-    display: flex;
-    justify-content: flex-end;
     width:1000px;
     height:580px;
     position:relative;
+    left:300px;
     margin:40px auto 0;
 }
 
@@ -50,16 +49,12 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
 .songList-container{
     display: flex;
     width:700px;
-    height:99%;
-    padding:8px;
-    position:relative;
-    left:-48%;
-    background:rgba(242,177,52,1);
+    height:96%;
+    position:absolute;
+    left:-47%;
+    background: rgb(242, 166, 37);
     /*background: linear-gradient(to bottom, rgba(242, 177, 52, 0.89), rgba(173, 141, 66, 0.78));*/
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
-}
-.songList-container.active{
-    background: red;
 }
 
 .songList-container > .songList-wrapper {
@@ -80,14 +75,14 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
 
 /*播放器*/
 .music-player{
-    /*display: none;*/
-    
     width:48%;
+    width:330px;
     height:96%;
+    margin: 8px;
     padding:15px;
     position:absolute;
     left:50%;
-    background:rgba(237,85,59,1);
+    background: rgb(222, 70, 42);
     box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
 }
 .music-player .album-art{
@@ -120,4 +115,33 @@ body { background: linear-gradient(to bottom, #238999, #313C60) }
     justify-content: flex-end;
 }
 
+.container.listActive.lyricActive .songList-container{
+    left:22px;
+}
+
+/*list-toggle*/
+.container.listActive .songList-wrapper{
+    display: none;
+}
+.container.listActive .songList-container{
+    left:22px;
+    width:349px;
+}
+.container.listActive .music-player{
+    left:-1px;
+}
+
+/*lyric-toggle*/
+.container.lyricActive{
+    justify-content: center;
+}
+.container.lyricActive .lyric-container{
+    width:395px;
+}
+.container.lyricActive .lyric-wrapper{
+    display: none;
+}
+.container.lyricActive .songList-container{
+    left:-329px;
+}
 

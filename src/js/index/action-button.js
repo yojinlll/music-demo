@@ -20,10 +20,10 @@
         </svg>
     </div>
     <div class="button-icon-2">
-        <svg class="icon" aria-hidden="true">
+        <svg id="list-button" class="icon" aria-hidden="true">
             <use xlink:href="#icon-list"></use>
         </svg>
-        <svg class="icon" aria-hidden="true">
+        <svg id="lyric-button" class="icon" aria-hidden="true">
             <use xlink:href="#icon-lyric"></use>
         </svg>
     </div>
@@ -32,7 +32,9 @@
       $(this.el).html(this.template)
     }
   }
-  let model = {}
+  let model = {
+      data:{icon:'play'}
+  }
   let controller = {
     init(view, model){
       this.view = view
@@ -46,6 +48,12 @@
       })
       $(this.view.el).on('click','#pause-button',()=>{
         window.eventHub.emit('emitPause')
+      })
+      $(this.view.el).on('click','#list-button',()=>{
+        window.eventHub.emit('emitListToggle')
+      })
+      $(this.view.el).on('click','#lyric-button',()=>{
+        window.eventHub.emit('emitLyricToggle')
       })
     }
   }

@@ -17,7 +17,7 @@
           p.textContent = matches[2]
           p.setAttribute('data-time',  matches[1])
         }else{
-          p.textContent = 'fuck'
+          p.textContent = 'balabala'
         }
         $el.find('.lyric').append(p)
       })

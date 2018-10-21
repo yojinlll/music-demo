@@ -2,7 +2,6 @@
   let view = {
     el:'.container',
     render(){
-      console.log(111111111)
       window.eventHub.on('emitListToggle',()=>{
         $(this.el).toggleClass('listActive')
       })

@@ -6,12 +6,12 @@
         <svg id="prev-button" class="icon" aria-hidden="true">
             <use xlink:href="#icon-prev"></use>
         </svg>
-        <svg id="play-button" class="icon" aria-hidden="true">
+        <svg id="play-pause-button" class="icon" aria-hidden="true">
             <use xlink:href="#icon-play"></use>
         </svg>
-        <svg id="pause-button" class="icon" aria-hidden="true">
-            <use xlink:href="#icon-pause"></use>
-        </svg>
+        <!--<svg id="pause-button" class="icon" aria-hidden="true">-->
+            <!--<use xlink:href="#icon-pause"></use>-->
+        <!--</svg>-->
         <svg id="stop-button" class="icon" aria-hidden="true">
             <use xlink:href="#icon-stop"></use>
         </svg>
@@ -32,9 +32,7 @@
       $(this.el).html(this.template)
     }
   }
-  let model = {
-      data:{icon:'play'}
-  }
+  let model = {}
   let controller = {
     init(view, model){
       this.view = view
@@ -43,17 +41,20 @@
       this.bindEvents()
     },
     bindEvents(){
-      $(this.view.el).on('click','#play-button',()=>{
-        window.eventHub.emit('emitPlay')
-      })
-      $(this.view.el).on('click','#pause-button',()=>{
-        window.eventHub.emit('emitPause')
+      $(this.view.el).on('click','#play-pause-button',()=>{
+        window.eventHub.emit('emitPlayPause')
       })
       $(this.view.el).on('click','#list-button',()=>{
         window.eventHub.emit('emitListToggle')
       })
       $(this.view.el).on('click','#lyric-button',()=>{
         window.eventHub.emit('emitLyricToggle')
+      })
+      $(this.view.el).on('click','#prev-button',()=>{
+        window.eventHub.emit('emitPrevSong')
+      })
+      $(this.view.el).on('click','#next-button',()=>{
+        window.eventHub.emit('emitNextSong')
       })
     }
   }

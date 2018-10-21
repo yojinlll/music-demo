@@ -32,14 +32,25 @@
     bindEventHub(){
       window.eventHub.on('selectArt',(clickSong)=>{             // 选择歌曲作品
         $('.song-name')[0].innerHTML = clickSong.name           // 歌名
-        $('audio').attr('src',clickSong.url)                    // 歌曲url
+        $('.art > audio').attr('src',clickSong.url)             // 歌曲url
         this.view.replaceCover(clickSong.cover)
       })
-      window.eventHub.on('emitPlay',()=>{                       // 播放歌曲
-        this.view.play()
+      window.eventHub.on('emitPlayPause',()=>{                       // 播放和暂停歌曲
+        let icon = $('#play-pause-button > use').attr('xlink:href')
+        let name = $('.art > .song-name').text()
+        if(icon==='#icon-play' && name){
+          this.view.play()
+          $('#play-pause-button > use').attr('xlink:href','#icon-pause')
+          this.onEnded()
+        }else{
+          $('#play-pause-button > use').attr('xlink:href','#icon-play')
+          this.view.pause()
+        }
       })
-      window.eventHub.on('emitPause',()=>{                      // 停止歌曲
-        this.view.pause()
+    },
+    onEnded(){
+      $('.art > audio')[0].onended = (()=>{
+        $('#play-pause-button > use').attr('xlink:href','#icon-play')
       })
     }
   }

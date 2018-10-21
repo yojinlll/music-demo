@@ -3,7 +3,7 @@
 ul,ol{ list-style: none; }
 
 html,body{ min-height: 100%; }
-body { background: linear-gradient(to bottom, #238999, #313C60) }
+body { background: linear-gradient(to bottom, #238999, #313C60); overflow-x:hidden; }
 
 .icon {
     width: 3em; height: 3em;

@@ -1,156 +1,109 @@
-*{ margin:0; padding:0; }
-*, *::after,*::before{ box-sizing: border-box; }
-ul,ol{ list-style: none; }
+* { margin: 0; padding: 0; }
+*, *::after, *::before { box-sizing: border-box; }
+ul, ol { list-style: none; }
+html, body { min-height: 100%; }
+body { background: linear-gradient(to bottom, #238999, #313C60); overflow-x: hidden; }
+a{ color: inherit; text-decoration: none; }
 
-html,body{ min-height: 100%; }
-body { background: linear-gradient(to bottom, #238999, #313C60); overflow-x:hidden; }
+.icon { width: 3em; height: 3em; vertical-align: -0.15em; fill: currentColor; overflow: hidden; cursor: pointer; }
 
-.icon {
-    width: 3em; height: 3em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
-    cursor: pointer;
+#icon-music { width: 6em; height: 6em; cursor: auto; }
+
+.icon:hover { transform: scale(1.1, 1.1); transition: all .2s ease-in-out; }
+
+
+
+#url-icon {
+    position: relative;
+    width: 1.5em; height: 1.5em;
+    top: 10%;
+    left: 15%;
 }
-#icon-music {
-    width: 6em; height: 6em;
-    cursor: auto;
+.github{
+    box-shadow: -7px 4px 7px 0px black;
+    position: absolute;
+    background: #6f87cd;
+    width:40px;
+    height:30px;
+}
+.jianshu{
+    box-shadow: -7px 4px 7px 0px black;
+    position: absolute;
+    top: 13%;
+    background: #a44dcd;
+    width:40px;
+    height:30px;
 }
 
-.container{
-    width:1000px;
-    height:580px;
-    position:relative;
-    left:300px;
-    margin:40px auto 0;
-}
+
+
+
+.container { width: 1000px; height: 580px; position: relative; left: 300px; margin: 40px auto 0;}
+
+
 
 /*歌词容器*/
-.lyric-container{
-    display: flex;
-    width:70%;
-    height:100%;
-    padding:8px;
-    position:relative;
-    /*margin:40px auto 0;*/
-    background: rgb(107, 185, 138);
-    box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
-}
+.lyric-container { display: flex; width: 70%; height: 100%; padding: 8px; position: relative;
+    background: rgb(107, 185, 138); box-shadow: 0 20px 26px 0 rgba(0, 0, 0, .22), 0 5px 60px 0 rgba(0, 0, 0, .21);}
 
-.lyric-container > .lyric-wrapper {
-    width:45%;
-    height:95%;
-    padding:25px;
-    border: 30px solid transparent;
-    position:absolute;
-    left:54%;
-    /*border: 1px solid red;*/
-    /*overflow: hidden;*/
-    overflow:auto;
-}
+.lyric-container > .lyric-wrapper { width: 45%; height: 95%; padding: 25px; border: 20px solid transparent;
+    position: absolute; left: 54%; overflow: auto; }
+
 
 
 /*歌单容器*/
-.songList-container{
-    display: flex;
-    width:700px;
-    height:96%;
-    position:absolute;
-    left:-47%;
-    background: rgb(242, 166, 37);
-    /*background: linear-gradient(to bottom, rgba(242, 177, 52, 0.89), rgba(173, 141, 66, 0.78));*/
-    box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
-}
+.songList-container { display: flex; width: 700px; height: 96%; position: absolute; left: -47%;
+    background: rgb(242, 166, 37); box-shadow: 0 20px 26px 0 rgba(0, 0, 0, .22), 0 5px 60px 0 rgba(0, 0, 0, .21); }
 
-.songList-container > .songList-wrapper {
-    width:50%;
-    height:93%;
-    padding:35px;
-    position:absolute;
-    /*border: 1px solid red;*/
-}
+.songList-container > .songList-wrapper { width: 50%; height: 93%; padding: 35px; position: absolute; }
 
-.songList-wrapper > .songList > li {
-    display: block;
-    padding: 10px 0;
-    border-bottom: solid rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
+.songList-wrapper > .songList > li { display: block; padding: 10px 10px;
+    border-bottom: solid rgba(0, 0, 0, 0.1); cursor: pointer;}
+
+.songList-wrapper > .songList > li:hover { transition: all .2s ease-in-out;
+    background: rgba(242, 144, 51, 0.78); border-radius: 5px;}
+
 
 
 /*播放器*/
-.music-player{
-    width:48%;
-    width:330px;
-    height:96%;
-    margin: 8px;
-    padding:15px;
-    position:absolute;
-    left:50%;
-    background: rgb(222, 70, 42);
-    box-shadow:0 20px 26px 0 rgba(0,0,0,.22),0 5px 60px 0 rgba(0,0,0,.21);
-}
-.music-player .album-art{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 270px;
-    border: 1px solid #000;
-    background: linear-gradient(to bottom, #238999, #36667a); overflow-x:hidden;
-    background-size: cover;
-}
-.music-player .song-name {
-    height: 3em;
-    line-height: 30px;
-    padding: 10px;
-}
-.music-player > .controls > .bar-container{
-    height: 1px;
-    margin-bottom: 20px;
-    position: relative;
-    background: #262626;
-}
-.music-player > .controls > .bar-container > bar{
-    width: 0;
-    display: block;
-    height: inherit;
-    background: #bc3958;
-    box-shadow: 0 0 5px 0 #bc3958;
-}
-.music-player > .controls > .action-button > .button-icon-2{
-    margin-top: 30px;
-    display: flex;
-    justify-content: flex-end;
-}
+.music-player { width: 48%; width: 330px; height: 96%; margin: 8px; padding: 15px; position: absolute;
+    left: 50%; background: rgb(222, 70, 42); box-shadow: 0 20px 26px 0 rgba(0, 0, 0, .22), 0 5px 60px 0 rgba(0, 0, 0, .21); }
 
-.container.listActive.lyricActive .songList-container{
-    left:22px;
-}
+.music-player .album-art { display: flex; justify-content: center; align-items: center; width: 100%;
+    background: linear-gradient(to bottom, #238999, #36667a); overflow-x: hidden; height: 270px;
+    border: 1px solid #000; background-size: cover;}
+
+.music-player .song-name { height: 3em; line-height: 30px; padding: 10px; }
+
+.music-player > .controls > .bar-container { height: 1px; margin-bottom: 20px; position: relative; background: #262626; }
+
+.music-player > .controls > .bar-container > bar { width: 0; display: block; height: inherit;
+    background: #bc3958; box-shadow: 0 0 5px 0 #bc3958; }
+
+.music-player > .controls > .action-button > .button-icon-2 { margin-top: 30px; display: flex; justify-content: flex-end; }
+
+
+
+/*style toggle*/
+.container.listActive.lyricActive .songList-container { left: 22px; }
+
+
 
 /*list-toggle*/
-.container.listActive .songList-wrapper{
-    display: none;
-}
-.container.listActive .songList-container{
-    left:22px;
-    width:349px;
-}
-.container.listActive .music-player{
-    left:-1px;
-}
+.container.listActive .songList-wrapper { display: none; }
+
+.container.listActive .songList-container { left: 22px; width: 349px; }
+
+.container.listActive .music-player { left: -1px; }
+
+
 
 /*lyric-toggle*/
-.container.lyricActive{
-    justify-content: center;
-}
-.container.lyricActive .lyric-container{
-    width:395px;
-}
-.container.lyricActive .lyric-wrapper{
-    display: none;
-}
-.container.lyricActive .songList-container{
-    left:-329px;
-}
+.container.lyricActive { justify-content: center; }
+
+.container.lyricActive .lyric-container { width: 395px; }
+
+.container.lyricActive .lyric-wrapper { display: none; }
+
+.container.lyricActive .songList-container { left: -329px; }
 

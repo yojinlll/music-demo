@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2b203e51-1d9d-44db-acee-cd39ead52744" name="Default Changelist" comment="" />
+    <list default="true" id="2b203e51-1d9d-44db-acee-cd39ead52744" name="Default Changelist" comment="测试2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,13 +17,14 @@
     <session id="-1656265127">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.16" value="3" />
-          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.18" value="3" />
+          <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -29,7 +32,7 @@
           <entry key="css" value="3" />
           <entry key="html" value="3" />
           <entry key="js" value="37" />
-          <entry key="md" value="1" />
+          <entry key="md" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -37,7 +40,7 @@
           <entry key="CSS" value="3" />
           <entry key="HTML" value="3" />
           <entry key="JavaScript" value="37" />
-          <entry key="Markdown" value="1" />
+          <entry key="Markdown" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -45,8 +48,8 @@
           <entry key="css" value="2315" />
           <entry key="html" value="854" />
           <entry key="js" value="11012" />
-          <entry key="md" value="2" />
-          <entry key="txt" value="349" />
+          <entry key="md" value="3" />
+          <entry key="txt" value="350" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -54,14 +57,27 @@
           <entry key="CSS" value="2315" />
           <entry key="HTML" value="877" />
           <entry key="JavaScript" value="10989" />
-          <entry key="Markdown" value="2" />
-          <entry key="PLAIN_TEXT" value="349" />
+          <entry key="Markdown" value="3" />
+          <entry key="PLAIN_TEXT" value="350" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor>
+                <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -173,6 +189,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,17 +197,21 @@
               <item name="music-demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="music-demo" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="music-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="music-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jsx.switch.disabled" value="true" />
-    <property name="last_opened_file_path" value="D:/github/test-2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
@@ -249,6 +270,8 @@
       <workItem from="1540088498744" duration="36329000" />
       <workItem from="1540171336032" duration="127000" />
       <workItem from="1540177075874" duration="754000" />
+      <workItem from="1540180101837" duration="437000" />
+      <workItem from="1540253265927" duration="793000" />
     </task>
     <task id="LOCAL-00001" summary="点击歌曲列表选项可激活">
       <created>1539758296695</created>
@@ -355,11 +378,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540177190852</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="测试2">
+      <created>1540180124052</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1540180124052</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131608000" />
+    <option name="totallyTimeSpent" value="132838000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -387,11 +417,11 @@
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="10" weight="0.32904148" />
-      <window_info anchor="bottom" x="0" y="270" width="1366" height="228" id="Terminal" order="11" weight="0.32474965" />
+      <window_info active="true" anchor="bottom" x="0" y="270" width="1366" height="228" id="Terminal" order="11" visible="true" weight="0.32474965" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.20863836" />
+      <window_info anchor="right" content_ui="combo" id="Project" order="3" visible="true" weight="0.20863836" />
     </layout>
     <layout-to-restore>
       <window_info id="npm" order="0" side_tool="true" />
@@ -437,7 +467,8 @@
     <MESSAGE value="移除 style-hidden.js，功能已合并至 action-button，实现 prev &amp; next 切换功能" />
     <MESSAGE value="添加 hover 效果及样式调整，添加链接" />
     <MESSAGE value="测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试" />
+    <MESSAGE value="测试2" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试2" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/css/default.css">
@@ -539,11 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -551,7 +577,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor>
-            <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+            <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
           </first_editor>
           <second_editor />
         </state>

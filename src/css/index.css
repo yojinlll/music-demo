@@ -43,22 +43,25 @@ a{ color: inherit; text-decoration: none; }
 
 
 /*歌词容器*/
-.lyric-container { display: flex; width: 70%; height: 100%; padding: 8px; position: relative;
+.lyric-container { display: flex; width: 70%; height: 100%; padding: 8px; position: relative; color: #323232; font-weight: bold;
     background: rgb(107, 185, 138); box-shadow: 0 20px 26px 0 rgba(0, 0, 0, .22), 0 5px 60px 0 rgba(0, 0, 0, .21);}
 
 .lyric-container > .lyric-wrapper { width: 45%; height: 95%; padding: 25px; border: 20px solid transparent;
     position: absolute; left: 54%; overflow: auto; }
 
+.lyric-container .lyric-wrapper > .lyric{
+    color: #323232; font-weight: bold; text-align: center;
+}
 
 
 /*歌单容器*/
 .songList-container { display: flex; width: 700px; height: 96%; position: absolute; left: -47%;
     background: rgb(242, 166, 37); box-shadow: 0 20px 26px 0 rgba(0, 0, 0, .22), 0 5px 60px 0 rgba(0, 0, 0, .21); }
 
-.songList-container > .songList-wrapper { width: 50%; height: 93%; padding: 35px; position: absolute; }
+.songList-container > .songList-wrapper { width: 50%; height: 93%; padding: 35px; position: absolute; overflow: auto;}
 
 .songList-wrapper > .songList > li { display: block; padding: 10px 10px;
-    border-bottom: solid rgba(0, 0, 0, 0.1); cursor: pointer;}
+    border-bottom: solid rgba(0, 0, 0, 0.1); cursor: pointer; color: #323232; font-weight: bold}
 
 .songList-wrapper > .songList > li:hover { transition: all .2s ease-in-out;
     background: rgba(242, 144, 51, 0.78); border-radius: 5px;}
@@ -71,13 +74,13 @@ a{ color: inherit; text-decoration: none; }
 
 .music-player .album-art { display: flex; justify-content: center; align-items: center; width: 100%;
     background: linear-gradient(to bottom, #238999, #36667a); overflow-x: hidden; height: 270px;
-    border: 1px solid #000; background-size: cover;}
+    border: 1px solid #000; background-size: cover; box-shadow: inset 1px 1px 5px black }
 
 .music-player .song-name { height: 3em; line-height: 30px; padding: 10px; }
 
-.music-player > .controls > .bar-container { height: 1px; margin-bottom: 20px; position: relative; background: #262626; }
+.music-player > .controls > .bar-container { margin-bottom: 30px; position: relative; background: #262626; cursor: pointer; }
 
-.music-player > .controls > .bar-container > bar { width: 0; display: block; height: inherit;
+.music-player > .controls > .bar-container > .bar { width: 0; display: block; height: 10px;
     background: #bc3958; box-shadow: 0 0 5px 0 #bc3958; }
 
 .music-player > .controls > .action-button > .button-icon-2 { margin-top: 30px; display: flex; justify-content: flex-end; }

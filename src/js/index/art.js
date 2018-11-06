@@ -25,17 +25,6 @@
         $(this.el).find($('.album-art')).removeAttr('style')
       }
     },
-    playToggle(){                         // 播放 & 暂停
-      let icon = $('#play-pause-button > use').attr('xlink:href')
-      let name = $('.art > .song-name').text()
-      if (icon === '#icon-play' && name) {
-        $(this.el).find('audio')[0].play()
-        $('#play-pause-button > use').attr('xlink:href', '#icon-pause')
-      }else {
-        $('#play-pause-button > use').attr('xlink:href', '#icon-play')
-        $(this.el).find('audio')[0].pause()
-      }
-    },
   }
   let model = {
     data: []
@@ -54,7 +43,7 @@
         this.view.replaceArt(data.clickSong)
       })
       window.eventHub.on('emitPlayPause', () => {                       // 播放和暂停歌曲
-        this.view.playToggle()
+        this.playToggle()
         this.onEnded()
       })
       window.eventHub.on('emitPrevSong', () => {
@@ -87,6 +76,17 @@
           }
         }
       })
+    },
+    playToggle(){                         // 播放 & 暂停
+      let icon = $('#play-pause-button > use').attr('xlink:href')
+      let name = $('.art > .song-name').text()
+      if (icon === '#icon-play' && name) {
+        $(this.view.el).find('audio')[0].play()
+        $('#play-pause-button > use').attr('xlink:href', '#icon-pause')
+      }else {
+        $('#play-pause-button > use').attr('xlink:href', '#icon-play')
+        $(this.view.el).find('audio')[0].pause()
+      }
     },
     onEnded(){
       $('.art > audio')[0].onended = (() => {

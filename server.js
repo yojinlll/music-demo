@@ -30,7 +30,7 @@ var qiniu = require('qiniu')
      let {accessKey, secretKey} = config;
     var mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
     var options = {
-      scope: '163-music-demo',
+      scope: 'music-demo',
     };
     var putPolicy = new qiniu.rs.PutPolicy(options);
     var uploadToken=putPolicy.uploadToken(mac);

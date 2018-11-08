@@ -16,7 +16,12 @@
     },
     replaceArt(clickSong){                // 替换作品（ 歌名 url 封面 ）
       this.render()
-      $('.song-name')[0].innerHTML = clickSong.name
+      if(clickSong.singer !== ''){
+        $('.song-name')[0].innerHTML = clickSong.name + ' - ' + clickSong.singer
+      }else{
+        $('.song-name')[0].innerHTML = clickSong.name
+      }
+
       $('.art > audio').attr('src', clickSong.url)
       $(this.el).find($('.album-art')).attr('style', `background-image:url(${clickSong.cover})`)
       if(clickSong.cover){
